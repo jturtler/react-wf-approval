@@ -1,8 +1,10 @@
 import { useEffect } from "react";
 import { useAppContext } from "../context/AppContext";
 import { useAppDispatch } from "../redux/hooks";
+import { Period, Location } from "../App";
+import { setLocations } from "../redux/locationSlice";
 
-/*
+
 const periods: Period[] = [
   { id: '202301', name: 'January 2023' },
   { id: '202302', name: 'February 2023' },
@@ -25,6 +27,13 @@ export function useApp () {
 		 // Simulating data retrieval with static data for now
 		 setPeriods(periods);
 		 dispatch(setLocations(locations));
-	  }, [setPeriods, dispatch]);
+  		}, [setPeriods, dispatch]);
+
+	  //if( ...) return <div>fasdfas</div>;
+
+	  return {
+		setLocations,
+		setPeriods,
+	  }
 }
-	  */
+

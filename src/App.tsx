@@ -16,6 +16,7 @@ export interface Location {
   name: string
 }
 
+
 const periods: Period[] = [
   { id: '202301', name: 'January 2023' },
   { id: '202302', name: 'February 2023' },
@@ -39,6 +40,8 @@ function App() {
     setPeriods(periods);
     dispatch(setLocations(locations));
   }, [setPeriods, dispatch]);
+
+  //useAppContext();
 
   return (
     <div className="grid grid-rows-[auto_1fr_auto] h-screen">
