@@ -1,11 +1,10 @@
-import { Location, Period } from "../App"
 import Selectors from "./Selectors"
 
-const MainBody = ({periodList, locationList}: {periodList:Period[], locationList:Location[]}) => {
+const MainBody = () => {
 
 	return (
 		<main>
-			<Selectors periodList={periodList} locationList={locationList} />
+			<Selectors />
 			<div className="p-2 ml-2">
 				Main body
 			</div>

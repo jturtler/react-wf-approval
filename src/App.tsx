@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import Footer from './components/Footer'
 import Header from './components/Header'
 import MainBody from './components/MainBody'
+import { useAppContext } from './context/AppContext'
 
 export interface Period {
   id: string
@@ -26,24 +27,21 @@ const locations: Location[] = [
 ];
 
 function App() {
-  const [periodList, setPeriodList] = useState<Period[]>([]);
-  const [locationList, setLocationList] = useState<Location[]>([]);
+  const { setPeriods, setLocations } = useAppContext();
 
   useEffect(() => {
     console.log('App mounted');
 
-    // Call retrievePeriods and retrieveLocations functions and set ContextApi for periods and locations
-    // Simulating data retrieval with static data for now
-
-    setPeriodList(periods);
-    setLocationList(locations);
+    // Simulating data retrieval with static data for now -   // Retrieve periods and locations by a call... if needed
+    setPeriods(periods);
+    setLocations(locations);
   }, []);
-  
+
 
   return (
     <div className="grid grid-rows-[auto_1fr_auto] h-screen">
       <Header/>
-      <MainBody periodList={periodList} locationList={locationList} />
+      <MainBody />
       <Footer />
     </div>
   )

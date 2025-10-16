@@ -1,6 +1,7 @@
-import { Location, Period } from "../App"
+import { useAppContext } from "../context/AppContext"
 
-const Selectors = ({periodList, locationList}: {periodList:Period[], locationList:Location[]}) => {
+const Selectors = () => {
+	const { periods, locations } = useAppContext();
 
 	return (
 		<div className="bg-white shadow-sm p-2 flex flex-wrap items-center gap-4">
@@ -8,21 +9,20 @@ const Selectors = ({periodList, locationList}: {periodList:Period[], locationLis
 				<div>
 					<label className="">Period</label>
 					<select className="border p-1 rounded w-40 ml-1" data-testid="select-period" >
-						{periodList.map(period => (
+						<option value="" disabled>Select a Period</option>
+						{periods.map(period => (
 							<option key={period.id} value={period.id}>{period.name}</option>
 						))}
-						<option value="" disabled>Select a Period</option>
-
 					</select>
 				</div>
 
 				<div>
 					<label className="">Location</label>
 					<select className="border p-1 rounded w-40 ml-1" data-testid="select-location" >
-						{locationList.map(location => (
+						<option value="" disabled>Select a Location</option>
+						{locations.map(location => (
 							<option key={location.id} value={location.id}>{location.name}</option>
 						))}
-						<option value="" disabled>Select a Location</option>
 					</select>
 				</div>
 
