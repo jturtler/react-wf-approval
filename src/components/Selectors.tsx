@@ -1,7 +1,9 @@
 import { useAppContext } from "../context/AppContext"
+import { useAppSelector } from "../redux/hooks"
 
 const Selectors = () => {
-	const { periods, locations } = useAppContext();
+	const { periods } = useAppContext();
+	const locations = useAppSelector(state => state.location.locations);
 
 	return (
 		<div className="bg-white shadow-sm p-2 flex flex-wrap items-center gap-4">

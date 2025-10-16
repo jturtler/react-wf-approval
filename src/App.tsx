@@ -3,6 +3,8 @@ import Footer from './components/Footer'
 import Header from './components/Header'
 import MainBody from './components/MainBody'
 import { useAppContext } from './context/AppContext'
+import { useAppDispatch } from './redux/hooks'
+import { setLocations } from './redux/locationSlice'
 
 export interface Period {
   id: string
@@ -27,16 +29,16 @@ const locations: Location[] = [
 ];
 
 function App() {
-  const { setPeriods, setLocations } = useAppContext();
+  const { setPeriods } = useAppContext();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     console.log('App mounted');
 
-    // Simulating data retrieval with static data for now -   // Retrieve periods and locations by a call... if needed
+    // Simulating data retrieval with static data for now
     setPeriods(periods);
-    setLocations(locations);
-  }, []);
-
+    dispatch(setLocations(locations));
+  }, [setPeriods, dispatch]);
 
   return (
     <div className="grid grid-rows-[auto_1fr_auto] h-screen">
